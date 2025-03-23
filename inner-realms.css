@@ -1,0 +1,229 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family:ABC;
+    background-color: rgb(221, 165, 192);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+@font-face {
+    font-family: "ABC";
+    src: url("font/Bristain\ Rought.ttf");
+}
+/* 导航栏样式 */
+.navbar {
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+
+.logo {
+    height: 60px;
+}
+
+.logo img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+}
+
+.nav-box {
+    position: relative;
+}
+
+.nav-links {
+    padding: 8px 25px;
+    display: flex;
+    gap: 25px;
+    position: relative;
+    z-index: 2;
+    background-color: white;
+    border: 2px solid rgb(55, 98, 164);
+}
+
+.nav-bk {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 8px;
+    left: 8px;
+    /* background-color: #E84B8A; */
+    background-color: rgb(55, 98, 164);
+    z-index: 1;
+}
+
+.nav-item {
+    position: relative;
+}
+@import url(font.css);
+.nav-item a {
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    padding: 0.5rem 0;
+    position: relative;
+    transition: all 0.3s ease;
+    color: rgb(55, 98, 164);
+}
+
+.nav-item a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: rgb(223, 134, 179);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.nav-item:hover a::after,
+.nav-item a.active::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* 项目内容样式 */
+.project-content {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 4rem 8%;
+}
+
+.project-section {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.project-header {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 800px;
+}
+
+.project-header h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: white;
+    letter-spacing: 1px;
+}
+
+.project-description {
+    color: white;
+    font-size: 1rem;
+    line-height: 1.8;
+    letter-spacing: 0.5px;
+    opacity: 0.9;
+}
+
+.project-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    width: 100%;
+}
+
+.gallery-item {
+    width: 100%;
+}
+
+.gallery-item.left {
+    justify-self: end;
+}
+
+.gallery-item.right {
+    justify-self: start;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-width: 600px;
+}
+
+/* 页脚样式 */
+.footer {
+    padding: 20px;
+    text-align: center;
+    /* background-color: #E84B8A; */
+    /* background-color: rgb(55, 98, 164); */
+    background-color: rgb(221, 165, 192);
+}
+@font-face {
+    font-family: "MY";
+    src: url("font/MyriadVariableConcept-Roman.otf");
+}
+.footer-text {
+    color: white;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    opacity: 0.8;
+}
+
+/* 响应式设计 */
+@media (max-width: 1200px) {
+    .project-gallery {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .gallery-item.left,
+    .gallery-item.right {
+        justify-self: center;
+    }
+
+    .gallery-item img {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .project-content {
+        padding: 2rem 5%;
+    }
+
+    .project-header h1 {
+        font-size: 2rem;
+    }
+
+    .project-description {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+}
+
+@media (max-width: 480px) {
+    .project-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .project-description {
+        font-size: 0.9rem;
+    }
+
+    .project-gallery {
+        gap: 1.5rem;
+    }
+
+    .footer-text {
+        font-size: 0.8rem;
+    }
+} 

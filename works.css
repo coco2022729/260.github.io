@@ -1,0 +1,247 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@import url(font.css);
+body {
+    font-family: ABC;
+    background-color: rgb(55, 98, 164);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+@font-face {
+    font-family: "ABC";
+    src: url("font/Bristain\ Rought.ttf");
+}
+@font-face {
+    font-family: "MY";
+    src: url("font/MyriadVariableConcept-Roman.otf");
+}
+@font-face {
+    font-family: "PARTY";
+    src: url("font/PARTY\ SIZE.otf");
+}
+
+@font-face {
+    font-family: "CC";
+    src: url("font/AdobeSongStd-Light.otf");
+}
+/* 导航栏样式 */
+.navbar {
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+
+.logo {
+    height: 60px;
+}
+
+.logo img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+}
+
+.nav-box {
+    position: relative;
+    display: inline-block;
+}
+
+.nav-links {
+    padding: 8px 25px;
+    display: flex;
+    gap: 25px;
+    position: relative;
+    z-index: 2;
+    background-color: rgb(55, 98, 164);
+    border: 2px solid #E84B8A;
+}
+
+.nav-bk {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 8px;
+    left: 8px;
+    background-color: #E84B8A;
+    z-index: 1;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-item a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    padding: 0.5rem 0;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.nav-item a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.nav-item:hover a::after,
+.nav-item a.active::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* 移除之前的hover效果 */
+.nav-item a:hover,
+.nav-item a.active {
+    color: white;
+}
+
+/* 作品内容区域 */
+.works-content {
+    flex: 1;
+    padding: 2rem 5%;
+}
+
+.works-title {
+    color: white;
+    font-size: 3.5rem;
+    text-align: center;
+    margin-bottom: 4rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.02);
+}
+
+/* 特定项目的位置和大小 */
+.item1 {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.item2 {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.item3 {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+}
+
+.item4 {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+.item5 {
+    grid-column: 3;
+    grid-row: 2;
+}
+
+/* 页脚样式 */
+.footer {
+    padding: 20px;
+    text-align: center;
+    margin-top: auto;
+}
+
+.footer-text {
+    color: white;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    opacity: 0.8;
+}
+
+/* 响应式设计 */
+@media (max-width: 1024px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    .item3 {
+        grid-column: auto;
+        grid-row: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .works-title {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .nav-box {
+        width: 250px;
+    }
+
+    .nav-links {
+        width: 270px;
+    }
+
+    .nav-bk {
+        width: 270px;
+    }
+
+    .nav-item a {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .works-title {
+        font-size: 2rem;
+    }
+
+    .footer-text {
+        font-size: 0.8rem;
+    }
+} 
